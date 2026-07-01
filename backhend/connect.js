@@ -59,7 +59,7 @@ app.get('/user',async (req,res) =>{
 
 const PORT = process.env.PORT 
 
-app.listen(PORT , () =>{
-    console.log(`api listen on port ${PORT}`)
+// app.listen(PORT , () =>{
+//     console.log(`api listen on port ${PORT}`)
+// })
     connectDB()
-})
