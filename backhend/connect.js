@@ -3,14 +3,22 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import userModel from './models/userSchema.js'
 import cors from 'cors'
-const app = express()
+import dns from "node:dns"
+
+dns.setServers([
+    "1.1.1.1",
+    "8.8.8.8"
+])
+
+export const app = express()
 app.use(express.json())
 dotenv.config({ path: "../.env" })
-
+console.log("ENV:", process.env.Mongo_URI)
 app.use(cors())
 const connectDB = async () => {
     try{
-  await mongoose.connect(process.env.Mongo_URI)
+ var re = await mongoose.connect(process.env.Mongo_URI)
+ console.log(re)
     console.log('DB CONNECTED')
     }catch(error){
         console.log("DB CONNECT NHI HAO ===>" + error)

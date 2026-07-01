@@ -1,14 +1,13 @@
 
-
 const getData = async () =>{
-const apiFetcher = await fetch("http://localhost:3000/user")
+const apiFetcher = await fetch("http://localhost:3000/users")
 const data = await apiFetcher.json()
 const {data:getUsers} = data
 console.log("GET USERS:", getUsers)
 
 const content = document.getElementById("container")
 
-getUsers.map(user =>{
+getUsers.forEach(user =>{
 content.innerHTML += `
      <div class="card">
         <h2>${user.name}</h2>
