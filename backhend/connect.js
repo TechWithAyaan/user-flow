@@ -10,7 +10,7 @@ dns.setServers([
     "8.8.8.8"
 ])
 
-export const app = express()
+const app = express()
 app.use(express.json())
 dotenv.config({ path: "../.env" })
 console.log("ENV:", process.env.Mongo_URI)
@@ -63,3 +63,5 @@ const PORT = process.env.PORT
 //     console.log(`api listen on port ${PORT}`)
 // })
     connectDB()
+
+    export default app
